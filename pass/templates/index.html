@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="sweetalert2.min.js"></script>
+<link rel="stylesheet" href="sweetalert2.min.css">
+<script src="sweetalert2.all.min.js"></script>
+    <title>Home | Password Manager</title>
+</head>
+
+<body>
+    <header>
+        <h1><img src="{% static 'images/user.png' %}" alt="Profile Image" title="{{ request.session.logname }}"> <img src="{% static 'images/padlock.png' %}" onclick="window.location.href='/add-pass';" alt="Add New Password" title="Add New Password">Password Manager &#128526
+            <span><a href="logout" class="signup-text">Logout</a></span>
+        </h1>
+    </header>
+    <div class="main">
+        <div class="home">
+            {% for item in client_passwords%}
+            <div class="card">
+                <h2>{{item.site}}</h2>
+                <button onclick='input_password({{item.id}})'>Show Password</button>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    <footer>
+        <h3>&#169 Since 2024</h3>
+        <h3>Managed and Created By Ashish Chaudhary</h3>
+        <h3><button id="btn1"></button>
+            <button id="btn2"></button>
+            <button id="btn3"></button>
+            <button id="btn4"></button>
+        </h3>
+    </footer>
+    <script>
+       function input_password(web_id){
+        window.location.href = '/check-password/'+web_id;
+       }
+    </script>
+</body>
+</html>

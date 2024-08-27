@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>Add Password | Password Manager</title>
+</head>
+<body>
+    <header>
+        <header>
+            <h1><img src="{% static 'images/user.png' %}" alt=""> <img src="{% static 'images/padlock.png' %}" alt="">Password Manager &#128526 <span>Logout</span></h1>
+        </header>
+    </header>
+    <div class="main">
+        <div class="container">
+            <form action="add-pass" method="POST">
+                {% csrf_token %}
+                <p><span><img src="{% static 'images/padlock.png' %}" alt=""></span></p>
+
+                <label for="name">Name of Website or App</label>
+                <input type="text" id="name" name="webname" placeholder="Name" required>
+
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="password" required>
+
+                <input type="submit" value="Add">
+                <a href="home"><img src="{% static 'images/turn-left.png' %}" alt="" style="width: 50px;height: 50px;"></a>
+            </form>
+        </div>
+    </div>
+    <footer>
+        <h3>&#169 Since 2024</h3>
+        <h3>Managed and Created By Ashish Chaudhary</h3>
+        <h3><button id="btn1"></button>
+            <button id="btn2"></button>
+            <button id="btn3"></button>
+            <button id="btn4"></button>
+        </h3>
+    </footer>
+</body>
+</html>
